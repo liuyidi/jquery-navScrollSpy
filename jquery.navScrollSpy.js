@@ -47,8 +47,8 @@
             //得到内容区Box的top值
             this.getBoxTop();
 
-            //点击切换导航按钮样式
-            this.$ele.on("click",this.$a,this.clickSwitch);
+            //点击切换导航按钮样式,更改上下文this
+            this.$a.on("click", $.proxy(this.clickSwitch,this));
 
             //滚动切换导航按钮
             this.scrolling();
@@ -58,10 +58,10 @@
         },
 
         //导航变化
-        changeNav: function(self){
+        changeNav: function(self,$parent){
             var current = self.options.current;
-            var $parent = self.parent();
-            $parent.siblings().removeClass(current).addClass(current);
+            self.$ele.find("."+current).removeClass(current);
+            $parent.addClass(current);
         },
 
         //得到内容区的Top值
@@ -73,17 +73,23 @@
                 //存放boxtop到box对象中去
                 self.boxs[boxId] = parseInt(boxTop);
             });
+            return self.boxs;
+        },
+
+        //根据滚动的值,比较得出滚轮所在的范围
+        getPosition: function(){
+
         },
 
         //滚动切换
         scrolling: function(){
             var st = $(window).scrollTop();
-            var boxTop = this.getBoxTop();
-            var $parent;
+            var position = this.getPosition(st);   //得到st所在的范围
+            var $parent = this.$ele.find('a[href="#'+ position+'"]').parent();
 
             $(window).bind("scroll",function(){
-                if(st >= boxTop[i] - 50){
-                    this.changeNav();
+                if(st >= boxTop - 50){
+                    this.changeNav(this,$parent);
                 }
 
             });
@@ -97,7 +103,7 @@
             var target = $a.attr("href"); //新的a #id
             if(!$parent.hasClass(self.options.current)){
                 //导航切换
-                self.changeNav(self);
+                self.changeNav(self,$parent);
 
                 //滚动开始
                 self.scrollTo(target, function(){
@@ -107,15 +113,15 @@
             }
 
             e.preventDefault();   //有current阻止冒泡
-        }
+        },
 
         //滚动到某个地方
         scrollTo: function(target, callback){
             //获取目标元素的TOP值
             var offset = $(target).offset().top;
             var $el = $('html,body');
-            if(!this.$el.is(":animated")){
-                this.$el.animate({
+            if(!$el.is(":animated")){
+                $el.animate({
                     scrollTop: offset
                 }, this.options.speed, this.options.easing,callback);
             }

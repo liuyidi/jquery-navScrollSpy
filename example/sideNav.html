@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="cn-zh">
+<head>
+    <meta charset="UTF-8">
+    <title>sideNav</title>
+    <style>
+        #nav{position:fixed; top:30px; left:100px;}
+        ul,li{list-style-type:none;}
+        .btn{width:160px; display:block; height:40px; line-height:40px; font-size:14px; font-weight:normal; text-align:center; border:1px solid #fe5050; border-radius:3px; cursor:pointer;    -webkit-transition: background ease .2s, color ease .2s;}
+        #nav li{margin-bottom:10px;}
+        #nav li a{color:#333; text-decoration: none;}
+        #nav li.current a{background:#fe5050; color:#fff;}
+        .container{float:right; display:inline-block;}
+        .container section{width:700px; height:300px; margin-bottom:20px;}
+    </style>
+</head>
+<body>
+<ul id="nav">
+    <li class="current"><a class="btn" href="#c1">1</a></li>
+    <li><a class="btn" href="#c2">2</a></li>
+    <li><a class="btn" href="#c3">3</a></li>
+    <li><a class="btn" href="#c4">4</a></li>
+</ul>
+<div class="container">
+    <section id="c1">111111111111
+        111111111111111111111111111111111111
+        111111111111111111111111111111111111111111111111
+        111111111111111111111111111111111111111111111111
+        111111111111111111111111111111111111111111111111
+        111111111111
+
+    </section>
+    <section id="c2">
+        222222222222222222222222222222222222
+        222222222222222222222222222222222222
+        222222222222222222222222222222222222
+        222222222222222222222222222222222222
+        222222222222222222222222222222222222
+        222222222222222222222222222222222222
+    </section>
+    <section id="c3">
+        333333333333333333333333333333
+        333333333333333333333333333333
+        333333333333333333333333333333
+        33333333333333333333333333333333333
+        333333333333333333333333333333
+        333333333333333333333333333333
+    </section>
+    <section id="c4">
+        444444444444444444444444444444
+        444444444444444444444444444444
+        444444444444444444444444444444
+        444444444444444444444444444444
+        444444444444444444444444444444
+    </section>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="../jquery.navScrollSpy.js"></script>
+<script src="js/sideNav.js"></script>
+</body>
+</html>
