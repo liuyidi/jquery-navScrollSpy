@@ -80,9 +80,9 @@
         scrolling: function(){
             var st = $(window).scrollTop();
             var wH = $(window).height();
-            //临界条件: $("#id").offset.top=$(window).height()+$(window).scrollTop();
+            //临界条件: $("#id").offset().top－$(window).scrollTop()>$(window).height()/2;
             for(var box in this.boxs){
-                if(st >= this.boxs[box]+parseInt(wH/2)){
+                if(st >= this.boxs[box]-parseInt(wH/2)){
                     var $parent = this.$ele.find('a[href="#'+box+'"]').parent();
                     this.changeNav(this,$parent);
                 }
