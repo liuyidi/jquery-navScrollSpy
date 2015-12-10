@@ -1,4 +1,5 @@
 $("#nav").navScrollSpy({
+    navContainer: '#nav',
     current:"current",
-    scrollSpeed: 250
+    scrollSpeed: 50
 });

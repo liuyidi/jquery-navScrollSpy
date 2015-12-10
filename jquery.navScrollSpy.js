@@ -21,11 +21,15 @@
     var pluginName = "navScrollSpy";
     //defaults options
     var defaults = {
+        navContainer: '#nav',  //外部容器
         navItems: 'a',        //元素
         current : 'current',  //当前
         easing : 'swing',   //动效
-        speed: 750        //速度
+        speed: 550,        //速度
         // duration: y    //方向
+        fixed: true,
+        newTop: "30",        //停留在距离顶部的距离
+        oldTop: "180"        //最开始的高度
     };
 
     function navScrollSpy(element, options){
@@ -58,6 +62,24 @@
             return this;
         },
 
+        //导航固定
+        fixNav: function(){
+            var st = $(window).scrollTop();
+            var $nav = $(this.options.navContainer)
+            var fixValue = this.options.oldTop;
+            if(st >= fixValue){
+                $nav.css({
+                    "position":"fixed",
+                    "top" : this.options.newTop+"px"
+                });
+            }else{
+                $nav.css({
+                    "position":"absolute",
+                    "top" : fixValue+"px"
+                });
+            }
+        },
+
         //导航变化
         changeNav: function(self,$parent){
             var current = self.options.current;
@@ -80,6 +102,7 @@
         scrolling: function(){
             var st = $(window).scrollTop();
             var wH = $(window).height();
+            this.fixNav();
             //临界条件: $("#id").offset().top－$(window).scrollTop()>$(window).height()/2;
             for(var box in this.boxs){
                 if(st >= this.boxs[box]-parseInt(wH/2)){

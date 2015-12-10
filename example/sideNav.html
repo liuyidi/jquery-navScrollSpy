@@ -4,56 +4,84 @@
     <meta charset="UTF-8">
     <title>sideNav</title>
     <style>
-        #nav{position:fixed; top:30px; left:100px;}
+        *{margin:0; padding:0;}
+        .header{width:100%; height:60px; background:#fff;}
+        .help-banner{width:100%; height:80px; background:#e52e17;}
+        .help-banner h2{font-size:24px; color:#fff; line-height:24px; padding:26px 0 26px 30px;}
+        .help-container{margin-top:160px;}
+        #nav{position:absolute; top:180px; left:70px;}
         ul,li{list-style-type:none;}
         .btn{width:160px; display:block; height:40px; line-height:40px; font-size:14px; font-weight:normal; text-align:center; border:1px solid #fe5050; border-radius:3px; cursor:pointer;    -webkit-transition: background ease .2s, color ease .2s;}
         #nav li{margin-bottom:10px;}
         #nav li a{color:#333; text-decoration: none;}
         #nav li.current a{background:#fe5050; color:#fff;}
-        .container{float:right; display:inline-block;}
-        .container section{width:700px; height:300px; margin-bottom:20px;}
+        .help-content{float:right; display:inline-block;}
+        .help-content section{width:700px; height:600px; margin-bottom:20px;}
     </style>
 </head>
 <body>
-<ul id="nav">
-    <li class="current"><a class="btn" href="#c1">1</a></li>
-    <li><a class="btn" href="#c2">2</a></li>
-    <li><a class="btn" href="#c3">3</a></li>
-    <li><a class="btn" href="#c4">4</a></li>
-</ul>
-<div class="container">
-    <section id="c1">111111111111
-        111111111111111111111111111111111111
-        111111111111111111111111111111111111111111111111
-        111111111111111111111111111111111111111111111111
-        111111111111111111111111111111111111111111111111
-        111111111111
+<div class="header">
 
-    </section>
-    <section id="c2">
-        222222222222222222222222222222222222
-        222222222222222222222222222222222222
-        222222222222222222222222222222222222
-        222222222222222222222222222222222222
-        222222222222222222222222222222222222
-        222222222222222222222222222222222222
-    </section>
-    <section id="c3">
-        333333333333333333333333333333
-        333333333333333333333333333333
-        333333333333333333333333333333
-        33333333333333333333333333333333333
-        333333333333333333333333333333
-        333333333333333333333333333333
-    </section>
-    <section id="c4">
-        444444444444444444444444444444
-        444444444444444444444444444444
-        444444444444444444444444444444
-        444444444444444444444444444444
-        444444444444444444444444444444
-    </section>
 </div>
+<div class="help">
+    <div class="help-banner">
+        <h2>常见问题</h2>
+    </div>
+    <div class="help-container">
+        <ul id="nav" class="help-nav">
+            <li class="current"><a class="btn" href="#c1">导航一</a></li>
+            <li><a class="btn" href="#c2">导航二</a></li>
+            <li><a class="btn" href="#c3">导航三</a></li>
+            <li><a class="btn" href="#c4">导航四</a></li>
+        </ul>
+        <div class="help-content">
+            <section id="c1">
+                <h2>导航一</h2>
+                <div class="content">
+                111111111111
+                111111111111111111111111111111111111
+                111111111111111111111111111111111111111111111111
+                111111111111111111111111111111111111111111111111
+                111111111111111111111111111111111111111111111111
+                111111111111
+                </div>
+            </section>
+            <section id="c2">
+                <h2>导航二</h2>
+                <div class="content">
+                222222222222222222222222222222222222
+                222222222222222222222222222222222222
+                222222222222222222222222222222222222
+                222222222222222222222222222222222222
+                222222222222222222222222222222222222
+                222222222222222222222222222222222222
+                </div>
+            </section>
+            <section id="c3">
+                <h2>导航三</h2>
+                <div class="content">
+                333333333333333333333333333333
+                333333333333333333333333333333
+                333333333333333333333333333333
+                33333333333333333333333333333333333
+                333333333333333333333333333333
+                333333333333333333333333333333
+                </div>
+            </section>
+            <section id="c4">
+                <h2>导航四</h2>
+                <div class="content">
+                444444444444444444444444444444
+                444444444444444444444444444444
+                444444444444444444444444444444
+                444444444444444444444444444444
+                444444444444444444444444444444
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
 <script src="js/jquery.min.js"></script>
 <script src="../jquery.navScrollSpy.js"></script>
 <script src="js/sideNav.js"></script>
